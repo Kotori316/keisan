@@ -25,10 +25,16 @@ class Fractions(d: BigDecimal, n: BigDecimal) extends Number {
     override def longValue(): Long = actualValue.longValue()
 
     def plus(fractions: Fractions): Fractions = {
-        val ngcd = denominator.toBigInt().gcd(fractions.denominator.toBigInt())
-        val nd = denominator * fractions.denominator / BigDecimal(ngcd)
-        val nn = numerator * (nd / denominator) + fractions.numerator * (nd / fractions.denominator)
-        new Fractions(nd, nn)
+        if (denominator.intValue() == 1) {
+            val nd = fractions.denominator
+            val nn = numerator * nd + fractions.numerator
+            new Fractions(nd, nn)
+        } else {
+            val ngcd = denominator.toBigInt().gcd(fractions.denominator.toBigInt())
+            val nd = denominator * fractions.denominator / BigDecimal(ngcd)
+            val nn = numerator * (nd / denominator) + fractions.numerator * (nd / fractions.denominator)
+            new Fractions(nd, nn)
+        }
     }
 
     def subtract(fractions: Fractions): Fractions = {
