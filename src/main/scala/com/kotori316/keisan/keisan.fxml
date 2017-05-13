@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox maxHeight="400" maxWidth="250" minHeight="400" minWidth="250" prefHeight="400.0" prefWidth="250.0"
+      xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.kotori316.keisan.Controller">
+    <children>
+        <Pane prefHeight="159.0" prefWidth="250.0">
+            <children>
+                <TextField fx:id="textfield" layoutY="2.0" prefHeight="48.0" prefWidth="250.0"/>
+                <Label fx:id="labelResult" alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="110.0"
+                       prefHeight="49.0" prefWidth="250.0">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <GridPane layoutY="-3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="241.0"
+                  prefWidth="248.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="NEVER"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+            </rowConstraints>
+            <children>
+                <Button fx:id="buttonLeft" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="("/>
+                <Button fx:id="button7" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="7" GridPane.rowIndex="1"/>
+                <Button fx:id="button4" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="4" GridPane.rowIndex="2"/>
+                <Button fx:id="button1" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="1" GridPane.rowIndex="3"/>
+                <Button fx:id="buttonClear" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="Clear" GridPane.rowIndex="4"/>
+                <Button fx:id="buttonRight" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text=")" GridPane.columnIndex="1"/>
+                <Button fx:id="button8" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="8" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Button fx:id="button5" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="5" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Button fx:id="button2" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Button fx:id="button0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="0" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <Button fx:id="buttonBack" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="Back" GridPane.columnIndex="2"/>
+                <Button fx:id="button9" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="9" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <Button fx:id="button6" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="6" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <Button fx:id="button3" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="3" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <Button fx:id="buttonDot" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0"
+                        text="." GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                <Button fx:id="buttonDivide" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="40.0"
+                        text="/" GridPane.columnIndex="3"/>
+                <Button fx:id="buttonMultiply" maxHeight="1.7976931348623157E308" mnemonicParsing="false"
+                        prefWidth="40.0" text="x" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                <Button fx:id="buttonMinus" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="40.0"
+                        text="-" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                <Button fx:id="buttonPlus" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="40.0"
+                        text="+" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                <Button fx:id="buttonEqual" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="40.0"
+                        text="=" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+            </children>
+        </GridPane>
+    </children>
+</VBox>
