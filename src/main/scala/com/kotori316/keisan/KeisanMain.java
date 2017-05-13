@@ -3,6 +3,7 @@ package com.kotori316.keisan;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class KeisanMain extends Application {
@@ -17,6 +18,7 @@ public class KeisanMain extends Application {
         primaryStage.setTitle("Keisan");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image(KeisanMain.class.getResourceAsStream("icon.png")));
         primaryStage.show();
     }
 }

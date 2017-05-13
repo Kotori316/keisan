@@ -13,13 +13,16 @@ class Fractions(d: BigDecimal, n: BigDecimal) extends Number {
     val denominator: BigDecimal = d.abs / gcd
     val numerator: BigDecimal = if (d < 0) n * -1 / gcd else n / gcd
 
-    override def intValue(): Int = (numerator / denominator).intValue()
 
-    override def floatValue(): Float = (numerator / denominator).floatValue()
+    private val actualValue = numerator / denominator
 
-    override def doubleValue(): Double = (numerator / denominator).doubleValue()
+    override def intValue(): Int = actualValue.intValue()
 
-    override def longValue(): Long = (numerator / denominator).longValue()
+    override def floatValue(): Float = actualValue.floatValue()
+
+    override def doubleValue(): Double = actualValue.doubleValue()
+
+    override def longValue(): Long = actualValue.longValue()
 
     def plus(fractions: Fractions): Fractions = {
         val ngcd = denominator.toBigInt().gcd(fractions.denominator.toBigInt())
@@ -69,6 +72,10 @@ class Fractions(d: BigDecimal, n: BigDecimal) extends Number {
         else
             numerator.toString() + " / " + denominator.toString()
     }
+
+    def toDecimalString: String = actualValue.toString()
+
+    def toString(decimal: Boolean): String = if (decimal) toDecimalString else toString
 }
 
 object Fractions {
@@ -87,6 +94,17 @@ object Fractions {
             case 1 => one
             case -1 => minus1
             case _ => Fractions(n, 1)
+        }
+    }
+
+    def apply(n: String): Fractions = {
+        val decimal = BigDecimal(n)
+        if (n.contains('.')) {
+            val a = decimal.scale
+            val tenPower = BigDecimal(10).pow(a)
+            new Fractions(tenPower, (decimal * tenPower).setScale(0))
+        } else {
+            new Fractions(1, decimal)
         }
     }
 

@@ -3,10 +3,14 @@ package com.kotori316.keisan;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 
 public class Controller implements Initializable {
@@ -55,6 +59,12 @@ public class Controller implements Initializable {
     public Button buttonLeft;
     @FXML
     public Button buttonRight;
+    @FXML
+    public CheckMenuItem menuDecimal;
+    @FXML
+    public MenuBar menuBar;
+
+    private Fractions result;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -90,13 +100,28 @@ public class Controller implements Initializable {
 
     private void calc() {
         try {
-            labelResult.setText(Keisan.calculate(textfield.getText()).toString());
+            result = Keisan.calculate(textfield.getText());
+            labelResult.setText(result.toString(menuDecimal.isSelected()));
         } catch (ArithmeticException e) {
             labelResult.setText(e.getMessage());
         } catch (Exception e) {
             labelResult.setText("Invalid");
         } finally {
             textfield.clear();
+        }
+    }
+
+    @FXML
+    @SuppressWarnings("unused")
+    private void menu_close(ActionEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    @SuppressWarnings("unused")
+    private void menu_Decimal(ActionEvent event) {
+        if (result != null) {
+            labelResult.setText(result.toString(menuDecimal.isSelected()));
         }
     }
 }

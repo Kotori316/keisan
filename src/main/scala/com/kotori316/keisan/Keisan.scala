@@ -39,9 +39,9 @@ object Keisan {
         multiplies.map(s => {
             val divides = s.split('/')
             if (divides.length == 1) {
-                Fractions(1, BigDecimal(s))
+                Fractions(s)
             } else {
-                divides.map(BigDecimal(_)).map(Fractions(1, _)).reduce((a, b) => a / b)
+                divides.map(Fractions(_)).reduce((a, b) => a / b)
             }
         }).reduce((a, b) => a * b)
     }
