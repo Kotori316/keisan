@@ -64,7 +64,7 @@ public class Controller implements Initializable {
     @FXML
     public MenuBar menuBar;
 
-    private Fractions result;
+    private Fraction result;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

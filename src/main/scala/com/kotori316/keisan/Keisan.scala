@@ -5,7 +5,7 @@ import java.util.regex.Pattern
 object Keisan {
     val pattern = Pattern.compile("[+\\-*/]\\(.+\\)|([+\\-*/]\\d+\\.\\d+)|([+\\-*/]\\d+)")
 
-    def calculate(s: String): Fractions = {
+    def calculate(s: String): Fraction = {
         val string = '+' +: s.replace(" ", "").replace('x', '*')
         val matcher = pattern.matcher(string)
         val seqBulder = Seq.newBuilder[String]
@@ -54,14 +54,14 @@ object Keisan {
         }
     }
 
-    def calcMultiply(string: String, f: Fractions = Fractions.one): Fractions = {
+    def calcMultiply(string: String, f: Fraction = Fraction.one): Fraction = {
         val multiplies = string.split('*')
         multiplies.map(s => {
             val divides = s.split('/')
             if (divides.length == 1) {
-                Fractions(s)
+                Fraction(s)
             } else {
-                divides.map(Fractions(_)).reduce((a, b) => a / b)
+                divides.map(Fraction(_)).reduce((a, b) => a / b)
             }
         }).reduce((a, b) => a * b)
     }
