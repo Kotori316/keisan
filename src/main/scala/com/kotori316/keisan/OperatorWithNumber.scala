@@ -1,6 +1,6 @@
 package com.kotori316.keisan
 
-class OperatorWithNumber(val operator: Operator, val fractions: Fractions) {
+class OperatorWithNumber(val operator: Operator, val fractions: Fraction) {
 
     def ::(other: OperatorWithNumber): OperatorWithNumber = {
         new OperatorWithNumber(other.operator, operator.o(other.fractions, fractions))
@@ -13,10 +13,10 @@ object OperatorWithNumber {
     val plus1 = OperatorWithNumber(Plus, 1)
     val plus0 = OperatorWithNumber(Plus, 0)
 
-    def apply(operator: Operator, fractions: Fractions): OperatorWithNumber = new OperatorWithNumber(operator, fractions)
+    def apply(operator: Operator, fractions: Fraction): OperatorWithNumber = new OperatorWithNumber(operator, fractions)
 
     def apply(s: String): OperatorWithNumber = {
-        val f = Fractions(s.substring(1))
+        val f = Fraction(s.substring(1))
         OperatorWithNumber(get(s), f)
     }
 
@@ -34,7 +34,7 @@ object OperatorWithNumber {
 }
 
 trait Operator {
-    def o(f1: Fractions, f2: Fractions): Fractions
+    def o(f1: Fraction, f2: Fraction): Fraction
 
     def toString: String
 
@@ -46,25 +46,25 @@ trait Operator {
 }
 
 object Plus extends Operator {
-    override def o(f1: Fractions, f2: Fractions): Fractions = f1 + f2
+    override def o(f1: Fraction, f2: Fraction): Fraction = f1 + f2
 
     override def toString: String = "+"
 }
 
 object Minus extends Operator {
-    override def o(f1: Fractions, f2: Fractions): Fractions = f1 - f2
+    override def o(f1: Fraction, f2: Fraction): Fraction = f1 - f2
 
     override def toString: String = "-"
 }
 
 object Multiply extends Operator {
-    override def o(f1: Fractions, f2: Fractions): Fractions = f1 * f2
+    override def o(f1: Fraction, f2: Fraction): Fraction = f1 * f2
 
     override def toString: String = "*"
 }
 
 object Divide extends Operator {
-    override def o(f1: Fractions, f2: Fractions): Fractions = f1 / f2
+    override def o(f1: Fraction, f2: Fraction): Fraction = f1 / f2
 
     override def toString: String = "/"
 }
