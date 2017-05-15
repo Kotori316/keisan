@@ -26,6 +26,7 @@ object OperatorWithNumber {
             case '-' => Minus
             case '*' => Multiply
             case '/' => Divide
+            case '^' => Power
         }
     }
 
@@ -40,6 +41,8 @@ trait Operator {
     def isPlus: Boolean = this == Plus || this == Minus
 
     def isMulti: Boolean = this == Multiply || this == Divide
+
+    def isPower: Boolean = this == Power
 }
 
 object Plus extends Operator {
@@ -64,4 +67,10 @@ object Divide extends Operator {
     override def o(f1: Fractions, f2: Fractions): Fractions = f1 / f2
 
     override def toString: String = "/"
+}
+
+object Power extends Operator {
+    override def o(f1: Fractions, f2: Fractions): Fractions = f1 ^ f2
+
+    override def toString: String = "^"
 }

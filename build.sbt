@@ -1,6 +1,6 @@
 name := "SbtProject"
 
-version := "3.0"
+version := "4.0"
 
 scalaVersion := "2.12.2"
 

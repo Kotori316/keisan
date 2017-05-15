@@ -102,7 +102,7 @@ public class Controller implements Initializable {
         try {
             result = Keisan.calculate(textfield.getText());
             labelResult.setText(result.toString(menuDecimal.isSelected()));
-        } catch (ArithmeticException e) {
+        } catch (ArithmeticException | IllegalArgumentException e) {
             labelResult.setText(e.getMessage());
         } catch (Exception e) {
             labelResult.setText("Invalid");
