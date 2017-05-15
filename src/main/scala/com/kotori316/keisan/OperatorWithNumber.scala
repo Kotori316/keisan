@@ -10,8 +10,8 @@ class OperatorWithNumber(val operator: Operator, val fractions: Fraction) {
 }
 
 object OperatorWithNumber {
-    val plus1 = OperatorWithNumber(Plus, 1)
-    val plus0 = OperatorWithNumber(Plus, 0)
+    val plus1 = OperatorWithNumber(Plus, Fraction.one)
+    val plus0 = OperatorWithNumber(Plus, Fraction.zero)
 
     def apply(operator: Operator, fractions: Fraction): OperatorWithNumber = new OperatorWithNumber(operator, fractions)
 
@@ -70,7 +70,7 @@ object Divide extends Operator {
 }
 
 object Power extends Operator {
-    override def o(f1: Fractions, f2: Fractions): Fractions = f1 ^ f2
+    override def o(f1: Fraction, f2: Fraction): Fraction = f1 ^ f2
 
     override def toString: String = "^"
 }
