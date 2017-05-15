@@ -5,7 +5,7 @@ import java.util.regex.Pattern
 object Keisan {
     val pattern: Pattern = Pattern.compile("[+\\-*/^]\\(.+\\)|([+\\-*/^]\\d+\\.\\d+)|([+\\-*/^]\\d+)")
 
-    def calculate(s: String): Fractions = {
+    def calculate(s: String): Fraction = {
         val string = '+' +: s.replace(" ", "").replace('x', '*')
         val matcher = pattern.matcher(string)
         val seqBulder = Seq.newBuilder[String]
@@ -76,7 +76,7 @@ object Keisan {
 
     /*def main(args: Array[String]): Unit = {
         println(calculate("4+2*3^(1+1)"))
-        println(Fractions("8.3") + Fractions("6.2"))
+        println(Fraction("8.3") + Fraction("6.2"))
     }*/
 
 }
